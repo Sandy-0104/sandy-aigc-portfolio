@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandy 作品集</title>
+    <style id="theme-vars">
+:root {
+  --brand-primary: #3b82f6;
+  --brand-primary-600: #2563eb;
+  --brand-primary-700: #1d4ed8;
+  --brand-cyan: #06b6d4;
+  --brand-background: #0b0b0f;
+  --brand-surface: #14141a;
+  --brand-surface-2: #1e1e26;
+  --brand-foreground: #f5f5f7;
+  --brand-foreground-muted: #a1a1aa;
+  --brand-foreground-subtle: #71717a;
+  --brand-card: #14141a;
+  --brand-card-foreground: #f5f5f7;
+  --brand-primary-foreground: #ffffff;
+  --brand-muted: #27272a;
+  --brand-muted-foreground: #a1a1aa;
+  --brand-border: rgba(255, 255, 255, 0.08);
+  --brand-input: #1e1e26;
+  --brand-ring: #3b82f6;
+  --brand-radius-sm: 4px;
+  --brand-radius-md: 8px;
+  --brand-radius-lg: 16px;
+  --brand-font: Inter, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --brand-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --brand-shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--brand-background);
+    --color-foreground: var(--brand-foreground);
+    --color-card: var(--brand-card);
+    --color-card-foreground: var(--brand-card-foreground);
+    --color-primary: var(--brand-primary);
+    --color-primary-foreground: var(--brand-primary-foreground);
+    --color-muted: var(--brand-muted);
+    --color-muted-foreground: var(--brand-muted-foreground);
+    --color-border: var(--brand-border);
+    --color-input: var(--brand-input);
+    --color-ring: var(--brand-ring);
+    --radius-sm: var(--brand-radius-sm);
+    --radius-md: var(--brand-radius-md);
+    --radius-lg: var(--brand-radius-lg);
+  }
+  @layer base {
+    body { background: var(--brand-background); color: var(--brand-foreground); }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--brand-background); }
+      .text-foreground { color: var(--brand-foreground); }
+      .bg-card { background-color: var(--brand-card); }
+      .text-card-foreground { color: var(--brand-card-foreground); }
+      .bg-primary { background-color: var(--brand-primary); }
+      .text-primary { color: var(--brand-primary); }
+      .border-primary { border-color: var(--brand-primary); }
+      .bg-primary-foreground { background-color: var(--brand-primary-foreground); }
+      .text-primary-foreground { color: var(--brand-primary-foreground); }
+      .bg-muted { background-color: var(--brand-muted); }
+      .text-muted-foreground { color: var(--brand-muted-foreground); }
+      .border-border { border-color: var(--brand-border); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      html { scroll-behavior: smooth; }
+      .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease-out, transform 0.5s ease-out; }
+      .reveal.revealed { opacity: 1; transform: translateY(0); }
+      .hero-gradient { background: linear-gradient(to bottom right, rgba(59,130,246,0.05), transparent, rgba(6,182,212,0.05)); }
+      .filter-btn { transition: all 0.2s ease; }
+      .filter-btn.active { background-color: var(--brand-primary); color: var(--brand-primary-foreground); border-color: var(--brand-primary); }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased" style="font-family: var(--brand-font);">
+    <main class="bg-background text-foreground">
+
+      <!-- Navigation -->
+      <nav class="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
+        <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4">
+          <a href="#portfolio" class="text-lg font-semibold tracking-tight text-foreground">Sandy<span class="text-primary">/顾</span> · 作品集</a>
+          <a href="https://www.xiaohongshu.com/user/profile/632ed873000000002303e799" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground transition-colors hover:bg-[var(--brand-primary-600)]">小红书主页<i data-lucide="external-link" class="h-3 w-3"></i></a>
+        </div>
+      </nav>
+
+      <!-- Portfolio -->
+      <section id="portfolio" class="relative overflow-hidden">
+        <div class="absolute inset-0 hero-gradient pointer-events-none"></div>
+        <div class="relative mx-auto max-w-6xl px-4 py-16 md:py-24">
+
+          <!-- Header -->
+          <div class="mb-10 reveal">
+            <p class="mb-2 text-sm font-medium uppercase tracking-widest text-primary">Portfolio</p>
+            <h1 class="text-3xl font-bold tracking-tight md:text-5xl">作品集</h1>
+            <p class="mt-3 text-muted-foreground">AIGC 创作作品展示 · 涵盖视频与图片两大类别</p>
+          </div>
+
+          <!-- Filter Tabs -->
+          <div class="mb-8 flex flex-wrap gap-3 reveal">
+            <button class="filter-btn active rounded-full border border-border bg-[var(--brand-surface-2)] px-5 py-2 text-sm font-medium text-muted-foreground" data-filter="all">
+              全部 <span class="filter-count ml-1 text-xs opacity-60"></span>
+            </button>
+            <button class="filter-btn rounded-full border border-border bg-[var(--brand-surface-2)] px-5 py-2 text-sm font-medium text-muted-foreground" data-filter="video">
+              <span class="inline-flex items-center gap-1.5"><i data-lucide="video" class="h-3.5 w-3.5"></i>视频</span> <span class="filter-count ml-1 text-xs opacity-60"></span>
+            </button>
+            <button class="filter-btn rounded-full border border-border bg-[var(--brand-surface-2)] px-5 py-2 text-sm font-medium text-muted-foreground" data-filter="image">
+              <span class="inline-flex items-center gap-1.5"><i data-lucide="image" class="h-3.5 w-3.5"></i>图片</span> <span class="filter-count ml-1 text-xs opacity-60"></span>
+            </button>
+          </div>
+
+          <!-- Works Grid (dynamically rendered) -->
+          <div id="works-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+
+          <!-- Empty state -->
+          <div id="empty-state" class="hidden py-20 text-center">
+            <i data-lucide="search-x" class="mx-auto mb-4 h-12 w-12 text-muted-foreground opacity-50"></i>
+            <p class="text-muted-foreground">该分类下暂无作品</p>
+          </div>
+
+          <!-- Upload Preview Area -->
+          <div class="reveal mt-12 rounded-2xl border border-dashed border-border bg-card p-6 md:p-8">
+            <div class="mb-4 flex items-center gap-3">
+              <div class="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10"><i data-lucide="upload" class="h-5 w-5 text-primary"></i></div>
+              <div>
+                <h3 class="font-semibold">本地上传预览</h3>
+                <p class="text-sm text-muted-foreground">选择图片或视频，仅本地预览，不会上传到服务器。</p>
+              </div>
+            </div>
+            <label class="relative inline-flex cursor-pointer items-center gap-2 rounded-lg border border-border bg-[var(--brand-surface-2)] px-4 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-primary/50">
+              <i data-lucide="image-plus" class="h-4 w-4 text-primary"></i>
+              <span>选择图片 / 视频</span>
+              <input type="file" accept="image/*,video/*" id="portfolio-upload-input" class="sr-only" />
+            </label>
+            <div id="upload-preview-area" class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="border-t border-border bg-background py-8">
+        <div class="mx-auto max-w-6xl px-4 text-center text-sm text-muted-foreground">
+          <p>© 2026 Sandy / 顾 · AIGC 内容创作者</p>
+        </div>
+      </footer>
+
+      <script>
+        (function () {
+          /* ================================================================
+           *  作品数据列表 — 在这里添加 / 删减作品
+           *
+           *  每个作品对象包含以下字段：
+           *  ┌──────────────────────────────────────────────────────────────┐
+           *  │ id          — 唯一编号（字符串，不要重复）                      │
+           *  │ type        — 作品类型，只填 'video' 或 'image'               │
+           *  │ title       — 作品标题                                         │
+           *  │ description — 一句话描述                                       │
+           *  │ thumbnail   — 封面/缩略图路径（视频用 poster 图，图片用原图）     │
+           *  │ videoSrc    — 视频文件路径（仅 type='video' 时填写，图片留空）   │
+           *  │ tags        — 标签数组（工具名称等）                            │
+           *  │ link        — 外部链接（小红书等，不需要就留空字符串 ''）        │
+           *  └──────────────────────────────────────────────────────────────┘
+           *
+           *  ✦ 添加作品：复制一个 { } 块，改掉内容，粘贴到数组末尾即可
+           *  ✦ 删减作品：删掉对应的 { } 整块即可
+           *  ✦ 改顺序：直接调整 { } 块的先后位置
+           * ================================================================ */
+          var WORKS = [
+            {
+              id: 'w04',
+              type: 'video',
+              title: '汽车广告短片',
+              description: '以动态光影与城市街景结合，打造具有电影质感的汽车广告短片。',
+              thumbnail: './assets/car-ad-poster.jpg',
+              videoSrc: './assets/car-ad.mp4',
+              tags: ['即梦 Seedance', 'Kling'],
+              link: 'https://www.xiaohongshu.com/user/profile/632ed873000000002303e799'
+            },
+            {
+              id: 'w05',
+              type: 'image',
+              title: '千墩冬工坊 · 角色',
+              description: '「千墩冬工坊」项目角色设定图，展现冬日工坊场景中的人物形象。',
+              thumbnail: './assets/qiandun-character.jpg',
+              videoSrc: '',
+              tags: ['Seedream', 'NanoBanana'],
+              link: 'https://www.xiaohongshu.com/user/profile/632ed873000000002303e799'
+            },
+            {
+              id: 'w06',
+              type: 'video',
+              title: '千墩冬工坊 · 成片',
+              description: '「千墩冬工坊」项目最终成片，将角色与场景串联为完整叙事短片。',
+              thumbnail: './assets/qiandun-final-poster.jpg',
+              videoSrc: './assets/qiandun-final.mp4',
+              tags: ['即梦 Seedance', 'Kling'],
+              link: 'https://www.xiaohongshu.com/user/profile/632ed873000000002303e799'
+            }
+          ];
+          /* ===================== 数据列表结束 ===================== */
+
+          var XHS_LINK = 'https://www.xiaohongshu.com/user/profile/632ed873000000002303e799';
+
+          // --- 统计各分类数量 ---
+          var counts = { all: WORKS.length, video: 0, image: 0 };
+          WORKS.forEach(function (w) {
+            if (w.type === 'video') counts.video++;
+            else if (w.type === 'image') counts.image++;
+          });
+
+          // --- 渲染作品卡片 ---
+          var grid = document.getElementById('works-grid');
+          var emptyState = document.getElementById('empty-state');
+
+          function renderWorks(filter) {
+            grid.innerHTML = '';
+            var list = (filter === 'all') ? WORKS : WORKS.filter(function (w) { return w.type === filter; });
+
+            if (list.length === 0) {
+              emptyState.classList.remove('hidden');
+              return;
+            }
+            emptyState.classList.add('hidden');
+
+            list.forEach(function (work, idx) {
+              var isVideo = work.type === 'video';
+              var card = document.createElement('article');
+              card.className = 'reveal group overflow-hidden rounded-2xl border border-border bg-card transition-colors hover:border-primary/30';
+              card.style.transitionDelay = (idx * 60) + 'ms';
+
+              // Media area
+              var mediaWrap = document.createElement('div');
+              mediaWrap.className = 'relative aspect-[4/3] overflow-hidden bg-[var(--brand-surface-2)]';
+
+              if (isVideo && work.videoSrc) {
+                var video = document.createElement('video');
+                video.src = work.videoSrc;
+                video.poster = work.thumbnail;
+                video.controls = true;
+                video.className = 'h-full w-full object-cover';
+                video.preload = 'metadata';
+                mediaWrap.appendChild(video);
+              } else {
+                var img = document.createElement('img');
+                img.src = work.thumbnail;
+                img.alt = work.title;
+                img.className = 'h-full w-full object-cover transition-transform duration-500 group-hover:scale-105';
+                img.loading = 'lazy';
+                img.onerror = function () { this.style.opacity = '0.15'; };
+                mediaWrap.appendChild(img);
+
+                if (isVideo) {
+                  var playBadge = document.createElement('div');
+                  playBadge.className = 'pointer-events-none absolute inset-0 flex items-center justify-center';
+                  playBadge.innerHTML = '<div class="flex h-14 w-14 items-center justify-center rounded-full bg-black/50 backdrop-blur-sm"><i data-lucide="play" class="h-6 w-6 text-white" style="margin-left:2px"></i></div>';
+                  mediaWrap.appendChild(playBadge);
+                }
+              }
+
+              // Type badge
+              var typeBadge = document.createElement('span');
+              typeBadge.className = 'absolute right-3 top-3 rounded-full px-2.5 py-0.5 text-xs font-medium backdrop-blur-sm';
+              if (isVideo) {
+                typeBadge.classList.add('bg-primary', 'text-primary-foreground');
+                typeBadge.textContent = '视频';
+              } else {
+                typeBadge.classList.add('bg-[var(--brand-surface-2)]', 'text-muted-foreground');
+                typeBadge.textContent = '图片';
+              }
+              mediaWrap.appendChild(typeBadge);
+
+              card.appendChild(mediaWrap);
+
+              // Info area
+              var info = document.createElement('div');
+              info.className = 'p-5';
+
+              var titleRow = document.createElement('div');
+              titleRow.className = 'mb-2 flex items-center justify-between gap-2';
+              var title = document.createElement('h3');
+              title.className = 'font-semibold truncate';
+              title.textContent = work.title;
+              titleRow.appendChild(title);
+              info.appendChild(titleRow);
+
+              if (work.description) {
+                var desc = document.createElement('p');
+                desc.className = 'mb-3 text-sm leading-relaxed text-muted-foreground line-clamp-2';
+                desc.textContent = work.description;
+                info.appendChild(desc);
+              }
+
+              if (work.tags && work.tags.length) {
+                var tagWrap = document.createElement('div');
+                tagWrap.className = 'mb-4 flex flex-wrap gap-2 text-xs text-muted-foreground';
+                work.tags.forEach(function (t) {
+                  var tag = document.createElement('span');
+                  tag.className = 'rounded bg-[var(--brand-surface-2)] px-2 py-1';
+                  tag.textContent = t;
+                  tagWrap.appendChild(tag);
+                });
+                info.appendChild(tagWrap);
+              }
+
+              if (work.link) {
+                var linkBtn = document.createElement('a');
+                linkBtn.href = work.link;
+                linkBtn.target = '_blank';
+                linkBtn.rel = 'noopener noreferrer';
+                linkBtn.className = 'inline-flex items-center gap-1.5 text-sm font-medium text-primary transition-colors hover:text-[var(--brand-cyan)]';
+                linkBtn.innerHTML = '查看小红书 <i data-lucide="external-link" class="h-3.5 w-3.5"></i>';
+                info.appendChild(linkBtn);
+              }
+
+              card.appendChild(info);
+              grid.appendChild(card);
+            });
+
+            // Re-init icons for newly created elements
+            if (window.lucide) lucide.createIcons();
+
+            // Re-observe for reveal
+            var newCards = grid.querySelectorAll('.reveal');
+            newCards.forEach(function (el) {
+              el.classList.add('revealed');
+            });
+          }
+
+          // --- Filter buttons ---
+          var filterBtns = document.querySelectorAll('.filter-btn');
+          filterBtns.forEach(function (btn) {
+            var f = btn.getAttribute('data-filter');
+            var countEl = btn.querySelector('.filter-count');
+            if (countEl) countEl.textContent = '(' + counts[f] + ')';
+
+            btn.addEventListener('click', function () {
+              filterBtns.forEach(function (b) { b.classList.remove('active'); });
+              btn.classList.add('active');
+              renderWorks(f);
+            });
+          });
+
+          // --- Initial render ---
+          renderWorks('all');
+
+          // --- Scroll reveal ---
+          var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+          document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+
+          // --- Upload preview ---
+          var uploadInput = document.getElementById('portfolio-upload-input');
+          var previewArea = document.getElementById('upload-preview-area');
+          if (uploadInput && previewArea) {
+            uploadInput.addEventListener('change', function () {
+              var file = this.files[0];
+              if (!file) return;
+              var reader = new FileReader();
+              reader.onload = function (e) {
+                var url = e.target.result;
+                var card = document.createElement('div');
+                card.className = 'overflow-hidden rounded-xl border border-border bg-card';
+                var media;
+                if (file.type.startsWith('video/')) {
+                  media = document.createElement('video');
+                  media.src = url;
+                  media.controls = true;
+                  media.className = 'h-48 w-full object-cover bg-black';
+                } else {
+                  media = document.createElement('img');
+                  media.src = url;
+                  media.alt = file.name;
+                  media.className = 'h-48 w-full object-cover';
+                }
+                var info = document.createElement('div');
+                info.className = 'p-3';
+                var name = document.createElement('p');
+                name.className = 'truncate text-xs text-muted-foreground';
+                name.textContent = file.name;
+                var remove = document.createElement('button');
+                remove.type = 'button';
+                remove.className = 'mt-2 text-xs font-medium text-primary hover:text-[var(--brand-cyan)]';
+                remove.textContent = '移除';
+                remove.addEventListener('click', function () { card.remove(); });
+                info.appendChild(name);
+                info.appendChild(remove);
+                card.appendChild(media);
+                card.appendChild(info);
+                previewArea.appendChild(card);
+              };
+              reader.readAsDataURL(file);
+              uploadInput.value = '';
+            });
+          }
+        })();
+      </script>
+    </main>
+    <script>lucide.createIcons();</script>
+</body>
+</html>
